@@ -368,56 +368,6 @@ class _SamplePageState extends State<SamplePage> with SingleTickerProviderStateM
 	}
 }
 
-class HeaderDelegate extends SliverPersistentHeaderDelegate {
-
-	TabController tabController;
-
-	HeaderDelegate(this.tabController);
-
-	@override
-	double get minExtent => 48.0;
-
-	@override
-	double get maxExtent => 250.0;
-
-	@override
-	bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
-		return true;
-	}
-
-	@override
-	Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-		final theme = Theme.of(context);
-		return Column(
-			children: <Widget>[
-				Container(
-					color: theme.primaryColor,
-					height: 250.0,
-					child: Center(
-						child: FractionallySizedBox(
-							widthFactor: 0.5,
-							child: Image.asset('assets/logo.png'),
-						),
-					),
-				),
-			],
-		);
-	}
-
-	Tab _buildTab(String text, double tabMinWidth) {
-		return Tab(
-			child: ConstrainedBox(
-				constraints: BoxConstraints(
-					minWidth: tabMinWidth,
-				),
-				child: Center(
-					child: Text(text),
-				),
-			),
-		);
-	}
-}
-
 class Category extends StatelessWidget {
 	final IconData icon;
 	final String title;
